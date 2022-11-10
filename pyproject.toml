@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "pyfboot"
+packages = [{include = "pyfboot"}]
+version = "0.0.1"
+description = "OPCUA Gateway generator for 4diac-Forte"
+authors = ["Aimirim Team <contato@aimirimsti.com.br>"]
+include = ["EULA.md"]
+readme = 'README.md'
+repository = "https://aimirimsti.ddns.net/gitlab/application_eng/data-collector/forte-gateway"
+homepage = "https://aimirimsti.com.br"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+wheel = "*"
+build = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
