@@ -2,7 +2,7 @@
 name = "pyfboot"
 packages = [{include = "pyfboot"}]
 version = "0.0.1"
-description = "OPCUA Gateway generator for 4diac-Forte"
+description = "Forte fboot Generator"
 authors = ["Aimirim Team <contato@aimirimsti.com.br>"]
 include = ["EULA.md"]
 readme = 'README.md'
