@@ -34,7 +34,7 @@ class CipFB(CommunicationFB):
 
         self.PARAM_conn = dsource['protocol']['con_type']
         self.PARAM_path = dsource['protocol']['path']
-        self.PARAM_rack = dsource['protocol']['rack']
+        self.PARAM_slot = dsource['protocol']['slot']
 
         if (self._is_dhplus()):
             self.PROTOCOL = 'CIPDH'
