@@ -11,6 +11,7 @@ homepage = "https://aimirimsti.com.br"
 
 [tool.poetry.dependencies]
 python = "^3.8"
+lxml = "*"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
