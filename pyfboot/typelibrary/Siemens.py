@@ -19,7 +19,7 @@ class SiemensFB(CommunicationFB):
         ''' Check PLC model.\n
         return `is_it` (bool): True when models older than S7-1200.\n
         '''
-        is_it = int(self.PARAM_target.split('S7')[-1]) < 1200
+        is_it = int(self.PARAM_target.upper().split('S7-')[-1]) < 1200
         return(is_it)
     # --------------------
 
@@ -52,7 +52,7 @@ class SiemensFB(CommunicationFB):
         tail = f"{self.PARAM_rack}{self.sep}{self.PARAM_slot}{self.sep}{self.timeout}{self.sep}{self.PARAM_address}"
 
         if (self._is_old_plc()):
-            comm = head + f"{self.PARAM_target}{self.sep}" + tail
+            comm = head + f"{self.PARAM_target.lower()}{self.sep}" + tail
         else:
             comm = head + tail
         
