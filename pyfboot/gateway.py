@@ -84,11 +84,34 @@ class MonoGatewayProject:
     # --------------------
 
     # --------------------
+    def _addObservers(self):
+        ''' Insert the last blocks for observability
+        and helthcheck \n
+        '''
+
+        stopwatchfb = self.proj.create_fb( tlib.SimplestFB('E_STOPWATCH') )
+        time_convertfb = self.proj.create_fb( tlib.SimplestFB('F_TIME_IN_S_TO_LREAL') )
+        uafb = self.proj.create_fb( tlib.Publish_1FB('_ForteCycleTime') )
+
+        self.Connections.append({'FROM':f'{self.cyclefb}.EO','TO':f'{stopwatchfb}.START'})
+        self.Connections.append({'FROM':f'{self.lastfb}.CNF','TO':f'{stopwatchfb}.STOP'})
+        self.Connections.append({'FROM':f'{stopwatchfb}.TD','TO':f'{time_convertfb}.IN'})
+        self.Connections.append({'FROM':f'{time_convertfb}.OUT','TO':f'{uafb}.SD_1'})
+
+        self.Connections.append({'FROM':f'{self.lastfb}.INITO','TO':f'{uafb}.INIT'})
+        self.Connections.append({'FROM':f'{stopwatchfb}.EO','TO':f'{time_convertfb}.REQ'})
+        self.Connections.append({'FROM':f'{time_convertfb}.CNF','TO':f'{uafb}.REQ'})
+
+        self.lastfb = uafb
+    # --------------------
+
+    # --------------------
     def write_fboot(self, filepath:str, overwrite:bool=True):
         ''' Export the single gateway Project into an fboot file.\n
         `filepath` (str): Path to save the fboot file into.\n
         `overwrite` (bool): Overwrite file if it already exists.\n
         '''
+        self._addObservers()
 
         self.Connections.append({'FROM':f'{self.lastfb}.INITO','TO':f'{self.cyclefb}.START'})
 
