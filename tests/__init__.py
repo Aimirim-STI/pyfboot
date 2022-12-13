@@ -16,7 +16,7 @@ data_mock = {
         'port': '102',
         'protocol': {
             'name': 'Siemens',
-            'con_type': 'S7300',
+            'con_type': 'S7-300',
             'rack': 0,
             'slot': 1,
         },
@@ -28,12 +28,12 @@ data_mock = {
                 'name': 'FT_PF02A1_1_1',
                 'description': 'Alimentação MOB1',
                 'num_type': 'REAL',
-                'address': 'DB101:DBD8'
+                'address': 'DB101.DBD8'
             },{
                 'name': 'FT_PI2634AC_1',
                 'description': 'Vazão de dosagem de ácido cítrico',
                 'num_type': 'REAL',
-                'address': 'DB100:DBD148'
+                'address': 'DB100.DBD148'
             }
         ]
         },
@@ -44,7 +44,7 @@ data_mock = {
             'port': '102',
             'protocol': {
                 'name': 'Siemens',
-                'con_type': 'S71500',
+                'con_type': 'S7-1500',
                 'rack': 0,
                 'slot': 1,
             },
@@ -56,7 +56,7 @@ data_mock = {
                     'name': 'A07TT153',
                     'description': 'Medidor de Temperatura do tanque 07-TQI-153',
                     'num_type': 'INT',
-                    'address': 'DB101:DBW14'
+                    'address': 'DB101.DBW14'
                 }
             ]
         },
