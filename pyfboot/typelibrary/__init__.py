@@ -13,5 +13,6 @@ from pyfboot.typelibrary.Rockwell import CipFB
 from pyfboot.typelibrary.Cycle import CycleFB
 from pyfboot.typelibrary.UAPublish import Publish_1FB
 from pyfboot.typelibrary.comm_templates import CommunicationFB
+from pyfboot.typelibrary.SimplestFB import SimplestFB
 
 #######################################
