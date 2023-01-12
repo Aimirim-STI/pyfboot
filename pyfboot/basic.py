@@ -9,6 +9,7 @@ Copyright (c) 2017 Aimirim STI.\n
 # Import system libs
 import os
 from lxml import etree as ET
+import fsspec
 
 # Import custom libs
 from pyfboot.typelibrary.templates import FB
@@ -139,10 +140,12 @@ class Project:
     # --------------------
 
     # --------------------
-    def write_to_file(self, filepath:str, overwrite:bool=False):
+    def write_to_file(self, filepath:str, overwrite:bool=False, **prot_opts):
         ''' Export the 4diac Project into an `fboot` file. \n
-        `filepath` (str): Path to save the fboot file into.\n
+        `filepath` (str): Local or remote path to save the fboot file into.\n
         `overwrite` (bool): Overwrite file if it already exists.\n
+        `prot_opts`: Extra options that make sense to a particular prococol
+        connection, e.g. `host`, `port`, `username`, etc..\n
         #### Warning: This must be called AFTER the `finish` method
         otherwise the forte won't begin the project execution.
         '''
@@ -155,11 +158,14 @@ class Project:
             print(f'WARNING: Folder "{folder}" do not exist, creating ...')
             os.makedirs(folder,exist_ok=True)
         
+        protocol, path = fsspec.core.split_protocol(filepath)
+        fs = fsspec.filesystem(protocol, **prot_opts)
+
         # Check file
-        if(os.path.exists(filepath) and not overwrite):
+        if(fs.exists(path) and not overwrite):
             print(f'WARNING: File "{filename}" already exists, skiping ...')
         else:
             # Write fboot
-            with open(filepath,'w') as fboot:
+            with fs.open(path,'w') as fboot:
                 fboot.writelines(self.fbootlist)
     # --------------------

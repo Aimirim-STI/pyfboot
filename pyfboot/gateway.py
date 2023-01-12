@@ -106,10 +106,12 @@ class MonoGatewayProject:
     # --------------------
 
     # --------------------
-    def write_fboot(self, filepath:str, overwrite:bool=True):
+    def write_fboot(self, filepath:str, overwrite:bool=True, **prot_opts):
         ''' Export the single gateway Project into an fboot file.\n
-        `filepath` (str): Path to save the fboot file into.\n
+        `filepath` (str): ocal or remote path to save the fboot file into.\n
         `overwrite` (bool): Overwrite file if it already exists.\n
+        `prot_opts`: Extra options that make sense to a particular
+        prococol connection, e.g. host, port, username, etc..\n
         '''
         self._addObservers()
 
@@ -120,5 +122,5 @@ class MonoGatewayProject:
         
         self.proj.finish()
         
-        self.proj.write_to_file(filepath,overwrite)
+        self.proj.write_to_file(filepath,overwrite,**prot_opts)
     # --------------------
