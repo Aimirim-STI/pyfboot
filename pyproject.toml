@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pyfboot"
 packages = [{include = "pyfboot"}]
-version = "0.0.1"
+version = "0.1.0"
 description = "Forte fboot Generator"
 authors = ["Aimirim Team <contato@aimirimsti.com.br>"]
 include = ["EULA.md"]
@@ -11,6 +11,8 @@ homepage = "https://aimirimsti.com.br"
 
 [tool.poetry.dependencies]
 python = "^3.8"
+fsspec = ">=2021.4"
+paramiko = "*"
 lxml = "*"
 
 [tool.poetry.dev-dependencies]
