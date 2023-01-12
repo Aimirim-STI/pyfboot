@@ -150,20 +150,12 @@ class Project:
         otherwise the forte won't begin the project execution.
         '''
 
-        # Separate path
-        folder,filename = os.path.split(filepath)
-
-        # Check if folder needs creation
-        if (folder!='' and not os.path.exists(folder)):
-            print(f'WARNING: Folder "{folder}" do not exist, creating ...')
-            os.makedirs(folder,exist_ok=True)
-        
         protocol, path = fsspec.core.split_protocol(filepath)
         fs = fsspec.filesystem(protocol, **prot_opts)
 
         # Check file
         if(fs.exists(path) and not overwrite):
-            print(f'WARNING: File "{filename}" already exists, skiping ...')
+            print(f'WARNING: File "{os.path.basename(path)}" already exists, skiping ...')
         else:
             # Write fboot
             with fs.open(path,'w') as fboot:
