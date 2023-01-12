@@ -20,12 +20,12 @@ class ModbusFB(CommunicationFB):
         ''' Parameters input to protocol\n
         '''
 
-        self.PARAM_ip = dsource['ip']
-        self.PARAM_port = dsource['port']
-        self.PARAM_address = dpoint['address']
+        self.PARAM_ip = dsource['plc_ip']
+        self.PARAM_port = dsource['plc_port']
+        self.PARAM_address = dpoint['access']['data']['address']
         
-        self.PARAM_func_code = dpoint['func_code']
-        self.PARAM_slave_id = dsource['protocol']['slave_id']
+        self.PARAM_func_code = dpoint['access']['data']['func_code']
+        self.PARAM_slave_id = dsource['protocol']['data']['slave_id']
     # --------------------
 
     # --------------------

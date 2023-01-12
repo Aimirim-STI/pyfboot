@@ -28,13 +28,13 @@ class CipFB(CommunicationFB):
         ''' Parameters input to protocol\n
         '''
         
-        self.PARAM_ip = dsource['ip']
-        self.PARAM_port = dsource['port']
-        self.PARAM_tag_name = dpoint['tag_name']
+        self.PARAM_ip = dsource['plc_ip']
+        self.PARAM_port = dsource['plc_port']
+        self.PARAM_tag_name = dpoint['access']['data']['tag_name']
 
-        self.PARAM_conn = dsource['protocol']['con_type']
-        self.PARAM_path = dsource['protocol']['path']
-        self.PARAM_slot = dsource['protocol']['slot']
+        self.PARAM_conn = dsource['protocol']['data']['connection']
+        self.PARAM_path = dsource['protocol']['data']['path']
+        self.PARAM_slot = dsource['protocol']['data']['slot']
 
         if (self._is_dhplus()):
             self.PROTOCOL = 'CIPDH'

@@ -28,13 +28,13 @@ class SiemensFB(CommunicationFB):
         ''' Parameters input to protocol\n
         '''
 
-        self.PARAM_ip = dsource['ip']
-        self.PARAM_port = dsource['port']
-        self.PARAM_address = dpoint['address']
+        self.PARAM_ip = dsource['plc_ip']
+        self.PARAM_port = dsource['plc_port']
+        self.PARAM_address = dpoint['access']['data']['address']
 
-        self.PARAM_target = dsource['protocol']['con_type'].upper()
-        self.PARAM_rack = dsource['protocol']['rack']
-        self.PARAM_slot = dsource['protocol']['slot']
+        self.PARAM_target = dsource['protocol']['data']['plc'].upper()
+        self.PARAM_rack = dsource['protocol']['data']['rack']
+        self.PARAM_slot = dsource['protocol']['data']['slot']
 
         if (self._is_old_plc()):
             self.PROTOCOL = 'S7'
