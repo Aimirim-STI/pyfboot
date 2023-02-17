@@ -35,6 +35,6 @@ class ModbusFB(CommunicationFB):
         '''
         comm = f"{self.PARAM_ip}{self.sep}{self.PARAM_port}{self.sep}"+ \
             f"{self.pooltime}{self.sep}{self.PARAM_slave_id}{self.sep}"+ \
-            f"{self.func_code}{self.sep}{self.PARAM_address}{self.sep}{self.timeout}"
+            f"{self.PARAM_func_code}{self.sep}{self.PARAM_address}{self.sep}{self.timeout}"
         return(comm)
     # --------------------
