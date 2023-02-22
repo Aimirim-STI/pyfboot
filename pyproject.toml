@@ -4,9 +4,9 @@ packages = [{include = "pyfboot"}]
 version = "0.1.2"
 description = "Forte fboot Generator"
 authors = ["Aimirim Team <contato@aimirimsti.com.br>"]
-include = ["EULA.md"]
+include = ["License"]
 readme = 'README.md'
-repository = "https://aimirimsti.ddns.net/gitlab/application_eng/data-collector/forte-gateway"
+repository = "https://github.com/Aimirim-STI/pyfboot"
 homepage = "https://aimirimsti.com.br"
 
 [tool.poetry.dependencies]
