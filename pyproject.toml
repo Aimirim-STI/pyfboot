@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pyfboot"
 packages = [{include = "pyfboot"}]
-version = "0.1.2"
+version = "0.2.0"
 description = "Forte fboot Generator"
 authors = ["Aimirim Team <contato@aimirimsti.com.br>"]
 include = ["License"]
